@@ -15,6 +15,7 @@ public class ShoppingCartTest {
 		shoppingCart.addItem(item2);
 		shoppingCart.addItem(item3);
 		
+		
 		PaymentStatus paymentStatus = shoppingCart.pay(PaymentType.NET_BANKING);
 		System.out.println("Payment Status:"+ paymentStatus);
 		
