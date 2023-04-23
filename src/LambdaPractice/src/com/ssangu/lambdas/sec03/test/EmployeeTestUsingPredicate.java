@@ -45,16 +45,9 @@ public class EmployeeTestUsingPredicate {
 
 		//Exercise
 		// 4. How will you implement the requirement Java Developers in EDC ?
-		/*
-		 * Predicate<Employee> javaDevInEDCFilter = (Employee employee) -> {return
-		 * (employee.getUnit() == unit && employee.getSkills().contains(Skill.JAVA));};
-		 * //EmployeeFilter javaDevInEDCFilter = (Employee employee) -> {return
-		 * (employee.getUnit() == unit && employee.getSkills().contains(Skill.JAVA));};
-		 * List<Employee> javaDevInEDC = getEmployeesFilteredBy(javaDevInEDCFilter);
-		 * 
-		 * System.out.println("Java Devs in EDC Unit");
-		 * System.out.println(javaDevInEDC);
-		 */
+		List<Employee> javaEdcEmployees = getEmployeesFilteredBy(javaFilter.and(edcFilter));
+		System.out.println("Java Developers in EDC Unit");
+		System.out.println(javaEdcEmployees);
 	}
 
 
