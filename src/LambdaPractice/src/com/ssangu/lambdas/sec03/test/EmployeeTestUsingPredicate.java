@@ -2,6 +2,7 @@ package com.ssangu.lambdas.sec03.test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 import com.ssangu.lambdas.sec03.EmployeeFilter;
 
@@ -21,20 +22,22 @@ public class EmployeeTestUsingPredicate {
 
 		Unit unit = Unit.EDC;
 		//1.Get list of all employees in EDC unit
-		EmployeeFilter edcFilter = (Employee employee) -> { return employee.getUnit() == unit;};
+		//EmployeeFilter edcFilter = (Employee employee) -> { return employee.getUnit() == unit;};
+		Predicate<Employee> edcFilter = (Employee employee) -> { return employee.getUnit() == unit;};
 		List<Employee> edcEmployees = getEmployeesFilteredBy(edcFilter);
 		System.out.println("All EDC Employees:"+edcEmployees);
 
 		//2. Get all Java Developers
 		Skill javaSkill = Skill.JAVA;
-		EmployeeFilter javaFilter = (Employee employee) -> {return employee.getSkills().contains(javaSkill);};
+		//EmployeeFilter javaFilter = (Employee employee) -> {return employee.getSkills().contains(javaSkill);};
+		Predicate<Employee> javaFilter = (Employee employee) -> {return employee.getSkills().contains(javaSkill);};
 		List<Employee> javaDevelopers = getEmployeesFilteredBy(javaFilter);
 		System.out.println("All Java Developers:"+javaDevelopers);
 
 		// 3. Get employees > 10 years experience
 
-		//Predicate<Employee> seniorsWithMoreThanTenYrsExpFilter = (Employee employee) -> {return employee.getExperience() > 10;};
-		EmployeeFilter seniorsWithMoreThanTenYrsExpFilter = (Employee employee) -> {return employee.getExperience() > 10;};
+		Predicate<Employee> seniorsWithMoreThanTenYrsExpFilter = (Employee employee) -> {return employee.getExperience() > 10;};
+		//EmployeeFilter seniorsWithMoreThanTenYrsExpFilter = (Employee employee) -> {return employee.getExperience() > 10;};
 		List<Employee> seniorProfessionals = getEmployeesFilteredBy(seniorsWithMoreThanTenYrsExpFilter);
 
 		System.out.println("--------Senior guys--------");
@@ -42,23 +45,27 @@ public class EmployeeTestUsingPredicate {
 
 		//Exercise
 		// 4. How will you implement the requirement Java Developers in EDC ?
-		//Predicate<Employee> javaDevInEDCFilter = (Employee employee) -> {return (employee.getUnit() == unit && employee.getSkills().contains(Skill.JAVA));};
-		EmployeeFilter javaDevInEDCFilter = (Employee employee) -> {return (employee.getUnit() == unit && employee.getSkills().contains(Skill.JAVA));};
-		List<Employee> javaDevInEDC = getEmployeesFilteredBy(javaDevInEDCFilter);
-
-		System.out.println("Java Devs in EDC Unit");
-		System.out.println(javaDevInEDC);
+		/*
+		 * Predicate<Employee> javaDevInEDCFilter = (Employee employee) -> {return
+		 * (employee.getUnit() == unit && employee.getSkills().contains(Skill.JAVA));};
+		 * //EmployeeFilter javaDevInEDCFilter = (Employee employee) -> {return
+		 * (employee.getUnit() == unit && employee.getSkills().contains(Skill.JAVA));};
+		 * List<Employee> javaDevInEDC = getEmployeesFilteredBy(javaDevInEDCFilter);
+		 * 
+		 * System.out.println("Java Devs in EDC Unit");
+		 * System.out.println(javaDevInEDC);
+		 */
 	}
 
 
 
 
 
-	public static List<Employee> getEmployeesFilteredBy(EmployeeFilter filter) {
+	public static List<Employee> getEmployeesFilteredBy(Predicate<Employee> filter) {
 
 		List<Employee> filteredEmployees = new ArrayList<>();
 		for(Employee employee: employees) {
-			if(filter.employeeFilter(employee)) {
+			if(filter.test(employee)) {
 				filteredEmployees.add(employee);
 			}
 		}
