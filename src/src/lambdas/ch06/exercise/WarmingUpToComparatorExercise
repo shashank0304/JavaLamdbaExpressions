@@ -1,0 +1,12 @@
+The input to the program is a list of strings:
+	
+	List<String> strings = Arrays.asList("i", "am", "we", "learning", "lambdas");
+
+Write a comparator in 3 different ways to sort this list by length of a string.
+1.Anonymous class
+2.Replace anonymous class with lambda expression
+3.Use Comparator.comparing method
+4.Use Method reference where applicable.
+
+Solution-
+Refer to the class WarmingUpToComparatorTest.java(lambdas.ch06.exercise) for the solution

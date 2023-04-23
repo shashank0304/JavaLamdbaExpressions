@@ -1,0 +1,31 @@
+In this exercise, we are going to perform operations around a mock movie database.
+The classes involved are 
+1. Movie.java- Holds information about a movie
+2. MovieUtil.java - Populates mock data
+3. MovieTest.java - This will contain the different implementations
+4. Genre - enum that contains different movie genres.
+
+1.Exercise one
+  Fetch the list of movies by their Genre.
+  Hint - Group movies by genre
+  Solution - Find the solution in MovieTest.java in the package  streams.ch10.exercise
+  
+2.Exercise two
+  Find the number of movies released in each year
+  Output - {2003=1, 2019=2, 2020=2, 2006=2, 1976=1, 1979=1, 2013=1, 1982=1, 1999=1}
+  Solution - Find the solution in MovieTest.java in the package  streams.ch10.exercise
+  
+3.Exercise three
+  Find the gross earning of movies classified by genre
+  Output - {HORROR=50000000, SUPERHERO=3000000000, COMEDY=533000000, ACTION=1693099584, CRIME=683000000}
+  Solution - Find the solution in MovieTest.java in the package  streams.ch10.exercise
+  
+  
+4.Exercise four
+  We would like to watch movies only with a rating of 4 and 5. Retrieve a list movies objects with a rating of 4 and 5.
+  Hint - Group movies by rating.
+  Solution - Find the solution in MovieTest.java in the package  streams.ch10.exercise
+ 
+5.Exercise five
+  Group movies with rating >= 4 but only names of movies. 
+  Solution - Find the solution in MovieTest.java in the package  streams.ch10.exercise

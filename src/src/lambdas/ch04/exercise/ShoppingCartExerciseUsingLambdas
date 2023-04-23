@@ -1,0 +1,24 @@
+In this exercise, we are going to continue with the simulation of the payment process for a shopping cart.
+Can we refactor the code from the previous version of this exercise and use lambdas ?
+
+We will re-factor the code from the previous exercise and introduce lambda expressions,functional interface
+to handle the different payment types.
+
+Requirement-
+The method that we need to implement is the pay method. We need to modify this method so that we can pass a lambda
+expression as a parameter to this function. Think about the functional interface that can be the parameter to the
+pay method.
+
+	public PaymentStatus pay(FunctionalInterface<?, ?> payment)
+    
+Depending on the payment type chosen, we are going to calculate the total amount of the items purchased in the cart.
+
+In the output,we will display :
+1.The total amount.
+2.The status of the payment, the value will be one of the following:SUCCESS,FAIL,PENDING
+
+At the end of this re-factoring notice how there are no classes with respect to the strategy pattern.
+
+Solution-
+The solution can be found in the package: lambdas.ch04.exercise
+

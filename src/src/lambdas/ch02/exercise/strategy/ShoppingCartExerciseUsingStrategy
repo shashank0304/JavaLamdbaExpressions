@@ -1,0 +1,23 @@
+In this exercise, we are going to continue with the simulation of a payment process for a shopping cart.
+Notice how the pay method in the earlier exercise needs to be modified as a new payment type is 
+introduced into the system.
+
+Is there a better way to implement this requirement ?
+
+We will re-factor the code from the previous exercise and introduce the strategy pattern to handle the different payment
+types.
+
+Requirement-
+The method that we need to implement is the pay method as shown below:
+
+	public PaymentStatus pay(PaymentStrategy paymentStrategy)
+    
+Depending on the payment type chosen, we are going to calculate the total amount of the items purchased in the cart.
+
+In the output,we will display :
+1.The total amount.
+2.The status of the payment, the value will be one of the following:SUCCESS,FAIL,PENDING
+
+Solution -
+Can be found in the lambdas.ch02.exercise.strategy package. Notice the PaymentStrategy interface along
+with the implementations: CashOnDeliveryPayment,CreditCardPayment,DebitCardPayment.

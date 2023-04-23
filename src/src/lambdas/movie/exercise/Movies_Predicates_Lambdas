@@ -1,0 +1,53 @@
+In the next exercises, we are going to perform operations around a mock movie database.
+The exercises will test your knowledge about writing lambda expressions
+
+The classes involved are
+1.Movie.java- Holds information about a movie
+2.MovieUtil.java - Populates mock data
+3.Genre - enum that contains different movie genres.
+4.MovieTest.java - Contains solutions
+
+All files are available in the package lambdas.movie.exercise
+
+1.Exercise one - Retrieve a list of movies that were released in the year 2020.
+ 
+  Write a function that accepts year(int) as a parameter. The method will return a Predicate<Movie>.
+  Implement this function which will check if the year in which the movie was released in the year 2020
+  
+  Using this predicate, implement a function getMovies that accepts a Predicate as a parameter and returns
+  a List<Movie>. This function will return a List<Movies> that filter the list of movies using this predicate.
+  The mock data can be retrieved using MovieUtil.getMovieData();
+  
+2.Exercise two - Retrieve a list of Horror movies.
+ 
+  Utilize the same function getMovies that accepts a Predicate as a parameter and returns a List<Movie>.
+  Write a function that returns a Predicate<Movie> and accepts a Genre object as a parameter.
+  This function must check if the movie is of the given Genre.
+   
+  
+3.Exercise three - Retrieve a list of Horror movies released in the year 2020
+ 
+  Utilize the 2 predicates in exercise 1 and 2
+  
+4.Exercise four - Retrieve a list of movies where the star cast includes Leonardo DiCaprio
+ 
+5.Exercise five - Retrieve a list of movies with with Brad Pitt but not with Leonardo DiCaprio
+
+  Hint - There is a method, negate in the Predicate interface.
+  
+6.Exercise Six - Get a list of top rated movies
+
+7.Exercise Seven - Get a list of top rated movies relased in the year 2020
+
+8.Exercise Eight - Group movies by genre
+
+  Hint -  use the computeIfAbsent from the Map interface, create a Map<Genre,List<Movie>>
+
+9.Exercise Nine - Group movies names by genre. Using the map created in the above solution,display
+  the genre and a comma separated list of movie names.
+  
+  Hint - Will BiConsumer help here ?
+  
+
+  
+  

@@ -1,0 +1,25 @@
+In this exercise, we are going to simulate the payment process for a shopping cart.
+Refer to the PaymentType class(in the lambdas.ch02.exercise package) which shows the 
+different types of payment available in the system.
+
+Requirement-
+The method that we need to implement is the pay method as shown below:
+
+    public PaymentStatus pay(PaymentType paymentType)
+    
+Depending on the payment type chosen, we are going to calculate the total amount to be paid for the items purchased.
+Refer to the ShoppingCart class that contains a list of items.
+
+In the output,we will display :
+1.The total amount.
+2.The status of the payment, the value will be one of the following:SUCCESS,FAIL,PENDING
+
+The pay method needs to handle all the payment types. In a real world system, the steps required for each type
+of payment will be more involved but we will keep it simple. The learning here is that the system can start with just 2
+types of payment, and in that case, the implementation of the pay method will be simple. 
+Once the system starts supporting additional types of payments, notice the changes that we need to make to the pay method.
+2 types of payment have been commented out in the code, uncomment the same and handle these types in the pay method.
+
+Solution -
+Can be found in the lambdas.ch02.exercise package.Refer to the classes ShoppingCart,PaymentStatus,PaymentType,Item.
+Run the ShoppingCartTest class

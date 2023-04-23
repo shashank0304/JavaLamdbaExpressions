@@ -1,0 +1,28 @@
+PremierLeague is a league where football clubs in England play against one another.
+At the end of the season, the team with maximum points are crowned champions for that year.
+
+In this exercise the input is a list of objects of the type PremierLeagueTeam.We have a list of 
+PremierLeagueTeam objects that captures-
+a. the total points accumulated
+b. the total number of goals scored against other teams
+c. total number of goals scored by other teams against them
+d. The goal difference which is  :  goals scored - goals against.
+Refer to the class PremierLeagueTeam in the package lambdas.ch06.exercise
+
+Based on this input, the requirement is to get the team standings. The standings are based on the following-
+1.The team with the most number of points stands first followed by 2nd largest and so on.
+2.If 2 teams have the same number of points, we need to rank them using goal difference. The team with the higher goal difference appears/ranks higher. 
+3.If 2 teams have same goal difference, then the team we rank them or sort them based on the goals scored by that team, the team that has scored more
+goals ranks higher.
+
+Based on this, we need to implement a Comparator in the :
+1.Usual way - anonymous class or class which implements Comparator interface
+2.Using methods in Comparator interface - comparing/comparingInt/reversed
+3.Refactor the code to use method references.
+
+Solution-
+The solution can be found in the class PremierLeagueComparatorTest.
+The getTeamStats() method in it returns some mock data.
+
+
+ 

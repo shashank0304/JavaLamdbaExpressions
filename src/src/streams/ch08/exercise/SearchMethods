@@ -1,0 +1,44 @@
+1.Exercise one
+  Input - A list of strings as shown below
+  "software","programmer","i","am","a","java","the"
+  
+  Search for the first occurrence of an article in this list and convert it to uppercase. An article is one 
+  of the following words - "a","an","the".
+  
+  Output - String that satisfies the above criteria. In this case The output will be the string: A
+  The solution can be found in the current package, the name of the file is ExerciseOneSolution.java
+ 
+ 2.Exercise two
+   We would like to watch the first Rocky movie from our movie related mock data.
+   Take a look at the MovieUtil.java class. The Rocky movies have the names: Rocky, Rocky One, Rocky Two.
+   Output - Movie [name=Rocky, dateOfRelease=1976-12-03]
+   Solution can be found in MovieTest.java.
+   
+ 3.Exercise three
+   Let us find out if there was a movie released starring Will Smith in the year 2020
+   Output - true, if there is a movie starring Will Smith in 2020, else, false.
+   Solution can be found in MovieTest.java.
+   
+ 4.Exercise four
+   We are going to read a file invalidpasswords.txt in this exercise. The file contains a few words that
+   must not be used as a password. Assume that a user enters a password as a string. As part of password
+   validation, we need to check that the password is not among these words in the file.
+   Output - The output must be a true or a false.
+   The solution is in ExerciseFourSolution.java
+   
+ 5.Exercise five
+   We are going to read a file sample.txt in this exercise. The file contains few lines. The file is 
+   considered a valid file if every line starts with a "#" and ends with a "#". If one of the lines 
+   does not contain this delimeter, then entire file is considered an invalid file. 
+   Output - The output must be a true or a false.
+   The solution is in ExerciseFiveSolution.java
+   
+ 6.Exercise Six
+   Understanding the behavior of takeWhile operation.Refer to the file TakeWhileListSet.java
+   Take a look at the code, the source of the stream in the first half of the code 
+   is a List and in the 2nd part it is a Set. In both cases, we are calling the takeWhile
+   operation.Run this file a few times,take a look at the output.The code also contains
+   a call to the peek function.This will help you to understand the behavior of takeWhile 
+   along with the concept of ordering on the stream. 
+   
+       

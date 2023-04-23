@@ -1,0 +1,15 @@
+Exercise -
+In this exercise, we are going to find the total number of parallel numbers starting from one
+up to 10 million. Write the code using both sequential and parallel streams.
+
+In section 3, we re-factored a lambda body that found first ten prime numbers.Use that as a reference, the name of java file
+for the refactoring was ThreadLambdasMultipleStatement.java
+
+Compare the time taken for execution in both cases - Use
+Instant start = Instant.now();
+Instant end = Instant.now();
+and then Duration.between(start,end).toMillis().
+
+Output
+The total number of prime numbers should be  664579
+

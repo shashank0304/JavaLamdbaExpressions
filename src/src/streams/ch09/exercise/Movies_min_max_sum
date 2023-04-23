@@ -1,0 +1,26 @@
+In this exercise, we are going to perform operations around a mock movie database.
+The classes involved are 
+1. Movie.java- Holds information about a movie
+2. MovieUtil.java - Populates mock data
+3. MovieTest.java - This will contain the different implementations
+4. Genre - enum that contains different movie genres.
+
+1.Exercise one
+  Find the highest grossing movie
+  Output - Movie [name=Avengers:Endgame, dateOfRelease=2019-04-26]
+  Solution - Refer to MoviesTest.java in the package streams.ch09.exercise
+  
+2.Exercise two
+  Find the lowest grossing movie in the year 2020
+  Output - Movie [name=The Grudge, dateOfRelease=2020-01-03]
+  Solution - Refer to MoviesTest.java in the package streams.ch09.exercise
+  
+3.Exercise three  
+  Find the total money grossed by Martin Scorsese films
+  Output - 683000000
+  Solution - Refer to MoviesTest.java in the package streams.ch09.exercise
+  
+4.Exercise four
+  How many movies were released in the last five years ?
+  Output - 5
+  Solution - Refer to MoviesTest.java in the package streams.ch09.exercise

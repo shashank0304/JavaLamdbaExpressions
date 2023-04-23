@@ -1,0 +1,23 @@
+In this exercise, we are going to perform operations around a mock movie database.
+The classes involved are
+1. Movie.java- Holds information about a movie
+2. MovieUtil.java - Populates mock data
+3. MovieTest.java - This will contain the different implementations
+4. Genre - enum that contains different movie genres.
+
+1.Exercise one
+  Find list of stars who have acted in Martin Scorsese movies
+  Output must be a List<String>
+  
+  
+2.Exercise two
+  Find unique list of stars who have acted in Martin Scorsese movies
+  
+3.Another example of flatMap
+  I have a blog about flatMap here :
+ 
+  https://wordpress.com/post/ajayiyengar.com/339
+  
+  In this example, we are dealing with a scenario where we have a List<List<>> or a Collection of Collection
+
+

@@ -1,0 +1,35 @@
+In this exercise, we have 3 tasks.
+
+1.The first task is to create an interface, NumberFilter, that will have an abstract method as shown below
+
+   public boolean filterNumber(Integer number);
+   
+   Create a class, NumberFilterTest. This class should have implementation for requirements a - e shown below.
+   
+   Input is a list of numbers containing both positive and negative numbers.
+   1,2,43,5,-234,23,6,7,19
+   
+   The output will also be a list of numbers that fulfill a criteria
+   The criteria/requirement will be fulfilled using a lambda expressions for the following cases -
+   
+   a.Retrieve a list of even numbers from the input list.
+   b.Retrieve a list of odd numbers from the input list.
+   c.Retrieve a list of positive numbers from the input list.
+   d.Retrieve a list of negative numbers from the input list.
+   e.Retrieve a list of prime numbers from the input list.
+
+   Write a function that accepts a list of input numbers and a lambda expression, and prints the output for each
+   scenario mentioned above. Try to make the lambda expression readable. Utilize the NumberFilter interface.
+   
+ 
+ 2.Apply the @FunctionalInterface annotation on the NumberFilter interface. Edit the interface and add a second
+   abstract method. Check if the code compiles.
+   
+ 3.We have seen an example of the Runnable interface and an anonymous class that implements the Runnable interface.
+   In this task , we will write a lambda expression for a Callable task. The code containing the version using an 
+   anonymous class is available in the CallableLambdasTest. Re-factor that code and replace it with lambda expressions. 
+   
+ 
+ Solution-
+ Refer to the classes/interface in the lambdas.ch03.exercise package.
+   
