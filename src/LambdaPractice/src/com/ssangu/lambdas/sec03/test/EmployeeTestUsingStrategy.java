@@ -1,7 +1,13 @@
-package com.ssangu.lambdas.sec03;
+package com.ssangu.lambdas.sec03.test;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.ssangu.lambdas.sec03.EDCFilter;
+import com.ssangu.lambdas.sec03.EmployeeFilter;
+import com.ssangu.lambdas.sec03.JavaSkillsFilter;
+import com.ssangu.lambdas.sec03.PositionFilter;
+import com.ssangu.lambdas.sec03.SeniorProfessionalsFilter;
 
 import lambdas.employee.ContractType;
 import lambdas.employee.Designation;
@@ -9,86 +15,48 @@ import lambdas.employee.Employee;
 import lambdas.employee.Skill;
 import lambdas.employee.Unit;
 
-public class EmployeeTest {
-
-
+public class EmployeeTestUsingStrategy {
+	
 	private static final List<Employee> employees = new ArrayList<>();
-
-	public static void main(String args[]) {
+	
+	public static void main(String[] args) {
+		
 		initialize();
-
-		// 1. Get me list of all employees in Extended Development Center.
-		System.out.println("----All in EDC----");
-
-		List<Employee> allInEdc = getAllEmployeesInEDC();
+		
+		//1. List of all employees in EDC Unit
+		System.out.println("---All in EDC----");
+		List<Employee> allInEdc = getAllEmployeesFliteredBy(new EDCFilter());
 		System.out.println(allInEdc);
-
-		// 2. Get me list of all employees in Financial Services.
-		System.out.println("----All in FS----");
-
-		List<Employee> allInFS = getAllEmployeesInFS();
-		System.out.println(allInFS);
-
-		// 3. Get all employees with java skills.
-		System.out.println("----All java developers----");
-
-		List<Employee> allJavaDevelopers = getAllJavaDevelopers(Skill.JAVA);
+		
+		//2.Get all employees with Java Skills
+		System.out.println("Employees with Java skills");
+		List<Employee> allJavaDevelopers = getAllEmployeesFliteredBy(new JavaSkillsFilter());
 		System.out.println(allJavaDevelopers);
-
-		// 4. Get all senior employees
-		System.out.println("----All employees with greater than 10 years experience:");
-
-		List<Employee> allHavingGreaterThan = getAllProfessionalsGreaterThan(10);
-		System.out.println(allHavingGreaterThan);
-
+		
+		//3. Get all employees with experience greater than 10 years 
+		System.out.println("Employees with more than 10 yrs experience");
+		List<Employee> allHavingGreaterThanTenYrsExp = getAllEmployeesFliteredBy(new SeniorProfessionalsFilter());
+		System.out.println(allHavingGreaterThanTenYrsExp);
+		
+		//4. Get all employees who are on contract
+		System.out.println("Contract Employees");
+		List<Employee> allContractEmployees = getAllEmployeesFliteredBy(new PositionFilter());
+		System.out.println(allContractEmployees);
+		
 	}
-
-	// Returns list matching all employees in EDC.
-	public static List<Employee> getAllEmployeesInEDC() {
-		List<Employee> employeesInEdc = new ArrayList<>();
-		for (Employee employee : employees) {
-			if (employee.getUnit() == Unit.EDC) {
-				employeesInEdc.add(employee);
+	
+	public static List<Employee> getAllEmployeesFliteredBy(EmployeeFilter filter) {
+		
+		List<Employee> allFiltered = new ArrayList<>();
+		
+		for(Employee employee: employees) {
+			if(filter.employeeFilter(employee)) {
+				allFiltered.add(employee);
 			}
 		}
-		return employeesInEdc;
+		return allFiltered;
 	}
-
-	// Returns list matching all employees in FS.
-	public static List<Employee> getAllEmployeesInFS() {
-		List<Employee> employeesInFS = new ArrayList<>();
-		for (Employee employee : employees) {
-			if (employee.getUnit() == Unit.FS) {
-				employeesInFS.add(employee);
-			}
-		}
-		return employeesInFS;
-	}
-
-	public static List<Employee> getAllJavaDevelopers(Skill skill) {
-		List<Employee> allJavaDevelopers = new ArrayList<>();
-		for (Employee employee : employees) {
-			if (employee.getSkills().contains(skill)) {
-				allJavaDevelopers.add(employee);
-			}
-		}
-		return allJavaDevelopers;
-
-	}
-
-	public static List<Employee> getAllProfessionalsGreaterThan(int experience) {
-		List<Employee> allJavaDevelopers = new ArrayList<>();
-		for (Employee employee : employees) {
-			if (employee.getExperience() > experience) {
-				allJavaDevelopers.add(employee);
-			}
-		}
-		return allJavaDevelopers;
-
-	}
-
 	private static void initialize() {
-
 		List<Skill> dev1Skills = new ArrayList<>();
 		dev1Skills.add(Skill.JAVA);
 		dev1Skills.add(Skill.JPA);

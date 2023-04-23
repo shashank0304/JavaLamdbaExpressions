@@ -1,7 +1,9 @@
-package com.ssangu.lambdas.sec03;
+package com.ssangu.lambdas.sec03.test;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.ssangu.lambdas.sec03.EmployeeFilter;
 
 import lambdas.employee.ContractType;
 import lambdas.employee.Designation;
@@ -9,48 +11,61 @@ import lambdas.employee.Employee;
 import lambdas.employee.Skill;
 import lambdas.employee.Unit;
 
-public class EmployeeTestUsingStrategy {
-	
-	private static final List<Employee> employees = new ArrayList<>();
-	
+public class EmployeeTestUsingPredicate {
+
+	public static final List<Employee> employees = new ArrayList<>();
+
 	public static void main(String[] args) {
-		
+
 		initialize();
-		
-		//1. List of all employees in EDC Unit
-		System.out.println("---All in EDC----");
-		List<Employee> allInEdc = getAllEmployeesFliteredBy(new EDCFilter());
-		System.out.println(allInEdc);
-		
-		//2.Get all employees with Java Skills
-		System.out.println("Employees with Java skills");
-		List<Employee> allJavaDevelopers = getAllEmployeesFliteredBy(new JavaSkillsFilter());
-		System.out.println(allJavaDevelopers);
-		
-		//3. Get all employees with experience greater than 10 years 
-		System.out.println("Employees with more than 10 yrs experience");
-		List<Employee> allHavingGreaterThanTenYrsExp = getAllEmployeesFliteredBy(new SeniorProfessionalsFilter());
-		System.out.println(allHavingGreaterThanTenYrsExp);
-		
-		//4. Get all employees who are on contract
-		System.out.println("Contract Employees");
-		List<Employee> allContractEmployees = getAllEmployeesFliteredBy(new PositionFilter());
-		System.out.println(allContractEmployees);
-		
+
+		Unit unit = Unit.EDC;
+		//1.Get list of all employees in EDC unit
+		EmployeeFilter edcFilter = (Employee employee) -> { return employee.getUnit() == unit;};
+		List<Employee> edcEmployees = getEmployeesFilteredBy(edcFilter);
+		System.out.println("All EDC Employees:"+edcEmployees);
+
+		//2. Get all Java Developers
+		Skill javaSkill = Skill.JAVA;
+		EmployeeFilter javaFilter = (Employee employee) -> {return employee.getSkills().contains(javaSkill);};
+		List<Employee> javaDevelopers = getEmployeesFilteredBy(javaFilter);
+		System.out.println("All Java Developers:"+javaDevelopers);
+
+		// 3. Get employees > 10 years experience
+
+		//Predicate<Employee> seniorsWithMoreThanTenYrsExpFilter = (Employee employee) -> {return employee.getExperience() > 10;};
+		EmployeeFilter seniorsWithMoreThanTenYrsExpFilter = (Employee employee) -> {return employee.getExperience() > 10;};
+		List<Employee> seniorProfessionals = getEmployeesFilteredBy(seniorsWithMoreThanTenYrsExpFilter);
+
+		System.out.println("--------Senior guys--------");
+		System.out.println(seniorProfessionals);
+
+		//Exercise
+		// 4. How will you implement the requirement Java Developers in EDC ?
+		//Predicate<Employee> javaDevInEDCFilter = (Employee employee) -> {return (employee.getUnit() == unit && employee.getSkills().contains(Skill.JAVA));};
+		EmployeeFilter javaDevInEDCFilter = (Employee employee) -> {return (employee.getUnit() == unit && employee.getSkills().contains(Skill.JAVA));};
+		List<Employee> javaDevInEDC = getEmployeesFilteredBy(javaDevInEDCFilter);
+
+		System.out.println("Java Devs in EDC Unit");
+		System.out.println(javaDevInEDC);
 	}
-	
-	public static List<Employee> getAllEmployeesFliteredBy(EmployeeFilter filter) {
-		
-		List<Employee> allFiltered = new ArrayList<>();
-		
+
+
+
+
+
+	public static List<Employee> getEmployeesFilteredBy(EmployeeFilter filter) {
+
+		List<Employee> filteredEmployees = new ArrayList<>();
 		for(Employee employee: employees) {
 			if(filter.employeeFilter(employee)) {
-				allFiltered.add(employee);
+				filteredEmployees.add(employee);
 			}
 		}
-		return allFiltered;
+		return filteredEmployees;
 	}
-	private static void initialize() {
+
+	public static void initialize() {
 		List<Skill> dev1Skills = new ArrayList<>();
 		dev1Skills.add(Skill.JAVA);
 		dev1Skills.add(Skill.JPA);
@@ -89,6 +104,6 @@ public class EmployeeTestUsingStrategy {
 		List<Skill> architectSkills = new ArrayList<>();
 		architectSkills.add(Skill.DESIGN);
 		employees.add(new Employee("Pirlo", 13, Designation.ARCHITECT, Unit.EDC, architectSkills, ContractType.FULLTIME));
-
 	}
+
 }
