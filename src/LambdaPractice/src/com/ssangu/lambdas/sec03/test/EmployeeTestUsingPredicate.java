@@ -26,6 +26,7 @@ public class EmployeeTestUsingPredicate {
 		Predicate<Employee> edcFilter = (Employee employee) -> { return employee.getUnit() == unit;};
 		List<Employee> edcEmployees = getEmployeesFilteredBy(edcFilter);
 		System.out.println("All EDC Employees:"+edcEmployees);
+		
 
 		//2. Get all Java Developers
 		Skill javaSkill = Skill.JAVA;
